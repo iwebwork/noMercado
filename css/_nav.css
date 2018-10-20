@@ -1,0 +1,135 @@
+
+.sidenav {
+    font-family: Canaro;
+    font-weight: light;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15px;
+    background-color:#f1f1f1;
+}
+
+.area-menu{
+    border: 2px rgb(228, 0, 43) solid;
+    background-color:rgb(228, 0, 43);
+}
+
+
+.sidenav a {
+    padding: 8px 8px 8px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+    color:#f1f1f1;
+}
+
+.sidenav a:hover {
+    color:rgb(228, 0, 43);
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 24px;
+    margin-left: 50px;
+    color:#f1f1f1;
+}
+
+.sidenav .closebtn:hover {
+   
+    color:#f1f1f1;
+}
+
+.link-button{
+    background-color: rgb(228, 0, 43)!important;
+    color:#f1f1f1;
+    
+}
+
+.link-button:hover, .link-button:click, .link-button:visited{
+    background-color: rgb(228, 0, 43)!important;
+}
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 0px;
+}
+
+.img{
+    min-height: 10px;
+    max-height: 40px;
+   
+}
+
+
+.img-menu{
+    
+    margin-top: 4px;
+    
+    
+}
+
+.text-menu{
+    font-size: 18px;
+    font-family: Canaro;
+    font-weight: lighter;
+}
+
+
+
+.area-links{
+    margin-top: 50px;
+}
+
+.link-menu:link, .link-menu:visited {
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 20px;
+    
+}
+
+.link-menu:hover{
+    color:#f1f1f1 !important;
+}
+
+
+.menu{
+    color: rgb(228, 0, 43) !important;
+}
+
+#item-alert-lojas{
+    display: none;
+}
+
+@media screen and (max-height: 650px) and (max-width:600px){
+  .sidenav {padding-top: 30px;}
+  .sidenav a {font-size: 16px;}
+  .img{
+      min-height: 10px;
+      max-height: 30px;
+      
+  }
+  
+  .link-menu{
+      margin-right: 30px;
+  }
+  
+  
+}
+
+@media screen and (max-height: 650px) and (min-height: 300px){
+    .sidenav{
+        padding-top: 8px;
+    }
+    
+}

@@ -1,0 +1,12 @@
+body{
+    transition-duration: 1s !important;
+    transition-delay: 1s !important;
+    transition: background-color .5s;
+    
+}
+
+.NoMercadoEstilo{
+    transition: background-color .5s;
+    background-color:rgb(228, 0, 43);
+    color: rgb(255, 255, 255) !important;
+}

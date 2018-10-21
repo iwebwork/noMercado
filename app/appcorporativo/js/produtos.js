@@ -1,42 +1,23 @@
 function listagemProdutos(){
-	const dbRef = firebase.database().ref();
+    
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          //Pequei o Uid do usuario, agr e listar seus dados com ele
+          var id = firebase.auth().currentUser.uid;
+          
+          var playersRef = firebase.database().ref("UsuariosCorporativos/" + id);
+          playersRef.on("child_added", snap => {
+                var user = new Object();
+                user = snap.val();
+                
+                alert(user);
 
-	const usersRef = dbRef.child('UsuariosCorporativos');
-	const userListUI = document.getElementById("userList");
-
-	usersRef.on("child_added", snap => {
-
-		let user = snap.val();
-
-		let $li = document.createElement("li");
-		$li.innerHTML = user.nome;
-		$li.setAttribute("child-key", snap.key);
-		$li.addEventListener("click", userClicked);
-		userListUI.append($li);
-
-	});
-
-}
-
-
-
-function userClicked(e) {
-
-	var userID = e.target.getAttribute("child-key");
-
-	const userRef = dbRef.child('UsuariosCorporativos/' + userID);
-	const userDetailUI = document.getElementById("userDetail");
-
-	userDetailUI.innerHTML = ""
-
-	userRef.on("child_added", snap => {
-
-
-		var $p = document.createElement("p");
-		$p.innerHTML = snap.key  + " - " +  snap.val();
-		userDetailUI.append($p);
-
-
-	});
-
+          });
+          
+          
+        } else {
+            alert("Não funcionou");
+        }
+    });
+    
 }

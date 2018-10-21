@@ -12,13 +12,20 @@
     <script src="../../js/_nav.js"></script>
     <script src="../../js/_date.js"></script>
     <script src="../../js/_bodySlides.js"></script>
+
+    <!-- js app -->
+    <script src="js/index.js"></script>
+    <script src="js/area-inicial.js"></script>
+    <script src="js/produtos.js"></script>
+    
     
     <!-- css pessoais -->
     <link rel="stylesheet" href="../../css/_nav.css">
     <link rel="stylesheet" href="../../css/_bodySlides.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/_footer.css">
-    
+    <link rel="stylesheet" href="../../css/area-inicial.css">
+
     <!-- Pasta node -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -106,7 +113,28 @@
         </div>
 
         <!-- area Principal -->
-        
+        <div id="areaInicial" class="container area-inicial">
+          <div class="row">
+            <a class="mao">Vendas</a>
+          </div>
+          <div class="row">
+            <a class="mao">Promoções</a>
+          </div>
+          <div class="row">
+            <a class="mao">Meu Perfil</a>
+          </div>
+          <div class="row">
+            <a id= "linkProdutos" class="mao" onclick="areaInicialDesapareceProdutos()">Produtos</a>
+          </div>
+        </div>
+
+        <!-- Inicio da Listagem dos produtos -->
+        <ul id="userList"></ul>
+
+        <div id="userDetail">
+         <!-- <p >Name :<strong class="detailName"></strong></p> -->
+        </div>
+
         
         <!-- Inicio do Rodapé -->
         <div class="container-fluid">

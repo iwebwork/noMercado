@@ -15,6 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       //ref.on("value", function(snapshot) {
       document.getElementById("user_para").innerHTML = email_id ;
       document.getElementById("sumir").style.display = "none";
+      document.getElementById("areaInicial").style.display = "block";
       //}, function (error) {
          //console.log("Error: " + error.code);
       //});

@@ -1,31 +1,29 @@
 
+import * as firebase from './firebase-config.js';
+
 function login(){
-
-  var userEmail = document.getElementById("email_field").value;
-  var userPass = document.getElementById("password_field").value;
-  //window.location = "index.html";
-
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-
-
-    //var resposta = "Error : " + errorMessage;
-    //document.getElementById("message").innerHTML = resposta;
-
-    if (resposta == "Error : The email address is badly formatted.") {
-      document.getElementById("message").innerHTML = "O formato do email e invalido";
-    };
-
-    if (resposta == "Error : There is no user record corresponding to this identifier. The user may have been deleted.") {
-      document.getElementById("message").innerHTML = "Este usuario não existe";
-    };
-
-    if (resposta == "Error : The password is invalid or the user does not have a password.") {
-      document.getElementById("message").innerHTML = "A senha está incorreta";
-    };
     
-    // ...
-  });
+    //var email = document.getElementById("email").value;
+    //var senha = document.getElementById("senha").value;
+    
+    //var conect = function(e,s){
+        //if(e.trim() == "" || s.trim() == ""){
+            alert("Seu email ou senha estão vazios");
+        //}else{
+            
+            //firebase.rootRef.ref("Usuario").child(key).on('value',function (snapshot){
+                //var resultado = (String(snapshot.val().cpf) == String(l) && String(snapshot.val().senha) == String(pcripto))? true : false;
+                //if (resultado == true){
+                    //window.location.href='home.html';
+                //}else { window.alert('CPF ou senha Errada'); }
+            ///});
+        //};
+  //}
+            
+        //}
+    //}
+    
 }
+
+
+

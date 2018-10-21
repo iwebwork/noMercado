@@ -15,14 +15,17 @@ function login(){
     //document.getElementById("message").innerHTML = resposta;
 
     if (resposta == "Error : The email address is badly formatted.") {
+      document.getElementById("message").style.display = "block"
       document.getElementById("message").innerHTML = "O formato do email e invalido";
     };
 
     if (resposta == "Error : There is no user record corresponding to this identifier. The user may have been deleted.") {
+      document.getElementById("message").style.display = "block"
       document.getElementById("message").innerHTML = "Este usuario não existe";
     };
 
     if (resposta == "Error : The password is invalid or the user does not have a password.") {
+      document.getElementById("message").style.display = "block"
       document.getElementById("message").innerHTML = "A senha está incorreta";
     };
     

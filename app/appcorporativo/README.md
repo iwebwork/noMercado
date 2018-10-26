@@ -13,3 +13,4 @@ OBS: Os arquivos js que estão com o seus nomes em nome.extenção são para o a
 20/10/2018 - Login atualizado, so falta detalhes de aparencia.
 20/10/2018 - Base para a listagem de produtos foi iniciada, agora e aplicar.
 25/10/2018 - Cookie adcionado com sucesso, agora e usar as informações salvas para a realizar a busca dos produtos.
+26/10/2018 - Inicio da listagem de produto. Precisa definir como será feito as buscas.

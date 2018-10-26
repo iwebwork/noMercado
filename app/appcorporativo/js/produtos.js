@@ -1,53 +1,52 @@
-
-
 /* global firebase, dbRef, codigoEstabelecimento, username */
 
-
-    
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-                //Peguei o Uid do usuario, agora e listar seus dados com ele
-                id = firebase.auth().currentUser.uid;
-		  
-		firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
-                    var username = (snapshot.val() && snapshot.val().nome); //esse .nome representa o atributo que você deseja buscar
+function listagemProdutos(){
+    var user = firebase.auth().currentUser;
+        if (user != null) {
+            firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
+                nomeEstabelecimento = (snapshot.val() && snapshot.val().nomeEstabelecimento); //esse .nome representa o atributo que você deseja buscar
+                codigoEstabelecimento = (snapshot.val() && snapshot.val().codigoEstabelecimento);
+                //  no banco de dados
+                // ...
+                if(nomeEstabelecimento != null && codigoEstabelecimento != null){
+                    document.cookie = nomeEstabelecimento;
+                    nomeEstabelecimento = document.cookie;
+                    //alert("Estabelecimento: " + nomeEstabelecimento);
+                        
+                    document.cookie = codigoEstabelecimento;
+                    codigoEstabelecimento = document.cookie;
+                    //alert("Tem codigo: " + codigoEstabelecimento);
+                    
+                    firebase.database().ref('/UsuariosCorporativos/Produtos' +nomeEstabelecimento + codigoEstabelecimento);
+                    
+                    
+                    
+                    
+                }else{
+                    alert("O nomeEstabelecimento não foi guardado");
+                }                        
+                    
+            });
+                
+            /*firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
+                    //codigoEstabelecimento = (snapshot.val() && snapshot.val().codigoEstabelecimento); //esse .nome representa o atributo que você deseja buscar
                      //  no banco de dados
                         // ...
+                    if(codigoEstabelecimento != null){
+                        document.cookie = codigoEstabelecimento;
+                        codigoestabelecimento = document.cookie;
+                        //alert("Codigo: " + codigoestabelecimento);
                     
-                    alert("Nome: "+username);
+                    }else{
+                        alert("O codigoestabelecimento não foi guardado");
+                    }
                     
-                });
-
-                firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
-                    var email = (snapshot.val() && snapshot.val().email);//buscando o email
-                    // ...
                     
-                    //alert("Email: "+email);
-                });
-                
-                firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
-                    var codigoEstabelecimento = (snapshot.val() && snapshot.val().codigoEstabelecimento);//buscando o código
-                        // ...
-                    
-                    alert("codigoEstabelecimento: "+ codigoEstabelecimento);
-                    
-                });
-                
-                
-                listagemProdutos(username, codigoEstabelecimento);
-          
-        } else {
-            alert("Não funcionou");
+            });*/
+            
         }
-    });
     
-
-
-function listagemProdutos(nome,codigo){
-                
-        alert("Nome: " + nome + " Codigo: " + codigo);
-    
-}
+    }
 
 
 

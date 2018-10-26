@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         // ...
                     if(username != null){
                         document.cookie = username;
-                        var nome = document.cookie;
+                        nome = document.cookie;
                         //alert("Nome: " + nome);
                         
 
@@ -39,35 +39,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     
                 });
                 
-                firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
-                    nomeEstabelecimento = (snapshot.val() && snapshot.val().nomeEstabelecimento); //esse .nome representa o atributo que você deseja buscar
-                     //  no banco de dados
-                        // ...
-                    if(nomeEstabelecimento != null){
-                        document.cookie = nomeEstabelecimento;
-                        var nomeEstabelecimento = document.cookie;
-                        //alert("Estabelecimento: " + nomeEstabelecimento);
-                    
-                    }else{
-                        alert("O nome não foi guardado");
-                    }
-                    
-                });
                 
-                firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
-                    codigoEstabelecimento = (snapshot.val() && snapshot.val().codigoEstabelecimento); //esse .nome representa o atributo que você deseja buscar
-                     //  no banco de dados
-                        // ...
-                    if(codigoEstabelecimento != null){
-                        document.cookie = codigoEstabelecimento;
-                        var codigoestabelecimento = document.cookie;
-                        //alert("Codigo: " + codigoestabelecimento);
-                    
-                    }else{
-                        alert("O nome não foi guardado");
-                    }
-                    
-                });
                 
                 // Ja tenho nome, email, codigoEstabelecimento. Peciso: nomeEstabelecimento,tipoEstabelecimento,token
 
@@ -92,47 +64,3 @@ firebase.auth().onAuthStateChanged(function(user) {
     
   }
 });
-
-function setCookie(name, value) {
-        var cookie = name + "=" + escape(value);
- 
-        document.cookie = cookie;
-        alert("Cookie setado com sucesso");
-}
-
-function getCookie(name) {
-    var cookies = document.cookie;
-    var prefix = name + "=";
-    var begin = cookies.indexOf("; " + prefix);
- 
-    if (begin === -1) {
- 
-        begin = cookies.indexOf(prefix);
-         
-        if (begin !== 0) {
-            return null;
-        }
- 
-    } else {
-        begin += 2;
-    }
- 
-    var end = cookies.indexOf(";", begin);
-     
-    if (end == -1) {
-        end = cookies.length;                        
-    }
- 
-    return unescape(cookies.substring(begin + prefix.length, end));
-}
-function checkCookie() {
-    var username = getCookie("userName");
-    if (username !== "") {
-        alert("Welcome again " + username);
-    } else {
-        username = alert("Please enter your name:", "");
-        if (userName != "" && userName != null) {
-            setCookie(username);
-        }
-    }
-}

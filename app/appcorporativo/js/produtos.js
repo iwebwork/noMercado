@@ -23,38 +23,50 @@ function listagemProdutos(){
                     usersRef.on("child_added", snap => {
                         
                         let user = snap.val();
-                        //const userDetailUI = document.getElementById("userDetail");
-                        const userListUI = document.getElementById("userList");
                         
-                        //Foi usado jQuery
-                        let $li = document.createElement("li");
-                        $li.innerHTML = user.caracteristica;
-                        $li.innerHTML += user.categoria;
-                        $li.innerHTML += user.codigo;
-                        $li.innerHTML += user.descricao;
-                        $li.innerHTML += user.marca;
-                        $li.innerHTML += user.medida;
-                        $li.innerHTML += user.produto;
-                        $li.innerHTML += user.quantidade;
-                        $li.innerHTML += user.quantidadeVendida;
-                        $li.innerHTML += user.subCategoria;
-                        $li.innerHTML += user.valor;
-                        userListUI.append($li);
+                        //Criados para selecionar os Ids
+                        const codigos = document.getElementById("codigos");
+                        const descricao = document.getElementById("descricao");
+                        const marca = document.getElementById("marca");
+                        const caracteristica = document.getElementById("caracteristica");
+                        const categoria = document.getElementById("categoria");
+                        
+                        //Converte o preço em numero e edita ele
+                        if (user.valor != null) {
+                            var preco = parseFloat(user.valor);
+                            var precoEd = preco.toFixed(2);
+                        }
+                        
+                        //Variaveis para criar a div
+                        var $divCodigo = document.createElement("div");
+                        var $divDescricao = document.createElement("div");
+                        var $divMarca = document.createElement("div");
+                        var $divCaracteristica = document.createElement("div");
+                        var $divCategoria = document.createElement("div");
+                        
+                        //Usado para escrever na div criada 
+                        $divCodigo.innerHTML = user.codigo;
+                        codigos.append($divCodigo);
+                        
+                        $divDescricao.innerHTML = user.descricao;
+                        descricao.append($divDescricao);
+                        
+                        $divMarca.innerHTML = user.marca;
+                        marca.append($divMarca);
+                        
+                        $divCaracteristica.innerHTML = user.caracteristica;
+                        caracteristica.append($divCaracteristica);
+                        
+                        $divCategoria.innerHTML = user.categoria;
+                        caracteristica.append($divCaracteristica);
                         
                         
-                        //var $p = document.createElement("p");
-                        //$p.innerHTML = snap.key  + " - " +  snap.val();
-                        //userDetailUI.append($p);
-                        
-                        
-                        
-                        //user.unshift(-1, 0);
-                        
-                        //alert(user.caracteristica);
-                        
-                        
-                        
-
+                        $('#listaProdutos').addClass('col-sm');
+                        $('#listaProdutos').addClass('text-justify');
+                        $('#listaProdutos').addClass('text-center');
+                        $('#listaProdutos').addClass('list-group');
+                        //$('#listaProdutos').addClass('borda');
+                       
                         //user.caracteristica;
                         //user.categoria;
                         //user.codigo;
@@ -68,13 +80,6 @@ function listagemProdutos(){
                         //user.valor;
 
                         
-                        
-                        //documente.getElementeById("userList").document.creatElement("li").innerHTML = user.codigo;
-                        //documente.getElementeById("userList").document.creatElement("li").innerHTML = user.produto;
-                        //li.innerHTML = user.nome;
-                        //li.setAttribute("child-key", snap.key);
-                        //li.addEventListener("click", userClicked)
-                        //userListUI.append($li);
 
                         
                     });
@@ -88,24 +93,5 @@ function listagemProdutos(){
         }
 
 }
-
-function userClicked(e) {
-        var userID = e.target.getAttribute("child-key");
-
-	const userRef = dbRef.child('UsuariosCorporativos/' + userID);
-	const userDetailUI = document.getElementById("userDetail");
-
-	userDetailUI.innerHTML = "";
-
-	userRef.on("child_added", snap => {
-
-
-		
-
-
-	});
-
-}
-
 
 

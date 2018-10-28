@@ -27,7 +27,6 @@ input, button {
 
 .main-div button, .loggedin-div button {
   background: #5d8ffc;
-  color: #fff;
   display: block;
   width: 100%;
   transition: 0.3s;
@@ -37,7 +36,7 @@ input, button {
 
 .main-div button:hover, .loggedin-div button:hover {
   background: #fff;
-  color: #5d8ffc;
+ 
   border: 1px solid #5d8ffc;
   cursor: pointer;
 }

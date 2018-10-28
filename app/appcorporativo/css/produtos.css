@@ -1,0 +1,23 @@
+#userList{
+   display: block;
+}
+
+.area-titulos{
+    font-size: 14px;
+    padding: 4px;
+    border: 1px solid grey;
+    
+}
+
+#userList{
+    font-size: 12px;
+    
+}
+
+.borda{
+    border: 1px solid gray;
+}
+
+.area-valores{
+    font-size: 12px;
+}

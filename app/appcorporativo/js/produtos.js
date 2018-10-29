@@ -29,7 +29,10 @@ function listagemProdutos(){
                         const descricao = document.getElementById("descricao");
                         const marca = document.getElementById("marca");
                         const caracteristica = document.getElementById("caracteristica");
-                        const categoria = document.getElementById("categoria");
+                        const valor = document.getElementById("valor");
+                        const inserir = document.getElementById("inserir");
+                        const deletar = document.getElementById("deletar");
+                        const alterar = document.getElementById("alterar");
                         
                         //Converte o preço em numero e edita ele
                         if (user.valor != null) {
@@ -38,15 +41,19 @@ function listagemProdutos(){
                         }
                         
                         //Variaveis para criar a div
-                        var $divCodigo = document.createElement("div");
-                        var $divDescricao = document.createElement("div");
-                        var $divMarca = document.createElement("div");
-                        var $divCaracteristica = document.createElement("div");
-                        var $divCategoria = document.createElement("div");
+                        var $divCodigo = document.createElement('div');
+                        var $divDescricao = document.createElement('div');
+                        var $divMarca = document.createElement('div');
+                        var $divCaracteristica = document.createElement('div');
+                        var $divValor = document.createElement('div');
+                        var $aInserir = document.createElement('div');
+                        var $aDeletar = document.createElement('div');
+                        var $aAlterar = document.createElement('div');
                         
                         //Usado para escrever na div criada 
                         $divCodigo.innerHTML = user.codigo;
                         codigos.append($divCodigo);
+                        
                         
                         $divDescricao.innerHTML = user.descricao;
                         descricao.append($divDescricao);
@@ -57,26 +64,53 @@ function listagemProdutos(){
                         $divCaracteristica.innerHTML = user.caracteristica;
                         caracteristica.append($divCaracteristica);
                         
-                        $divCategoria.innerHTML = user.categoria;
-                        caracteristica.append($divCaracteristica);
+                        $divValor.innerHTML = precoEd;
+                        valor.append($divValor);
                         
+                        $aAlterar.innerHTML = "Alterar";
+                        $aAlterar.setAttribute("child-key", user.codigo);
+                        $aAlterar.addEventListener("click", atualizar);
+                        alterar.append($aAlterar);
                         
+                        $aDeletar.innerHTML = "Deletar";
+                        $aDeletar.setAtribute('child-key', user.codigo);
+                        deletar.append($aDeletar);
+                        
+                        $aInserir.innerHTML = "Inserir";
+                        $aInserir.setAtribute('child-key', user.codigo);
+                        inserir.append($aInserir);
+                        
+                        //Atribuindo classes as divs dos produtos
                         $('#listaProdutos').addClass('col-sm');
                         $('#listaProdutos').addClass('text-justify');
                         $('#listaProdutos').addClass('text-center');
                         $('#listaProdutos').addClass('list-group');
-                        //$('#listaProdutos').addClass('borda');
+                        $('#listaProdutos').addClass('list-group');
+                        
+                        //Atribuindo classes as divs Alterar
+                        $('#alterar').addClass('comandos');
+                        $('#alterar').addClass('text-justify');
+                        //$('#alterar').addClass('text-center');
+                        $('#alterar').addClass('list-group');
+                        
+                        
+                        //Atribuindo classes as divs deletar
+                        $('#deletar').addClass('comandos');
+                        $('#deletar').addClass('text-justify');
+                        //$('#deletar').addClass('text-center');
+                        $('#deletar').addClass('list-group');
+                       
+                        
+                        //Atribuindo classes as divs Inserir
+                        $('#inserir').addClass('comandos');
+                        $('#inserir').addClass('text-justify');
+                        //$('#inserir').addClass('text-center');
+                        $('#inserir').addClass('list-group');
                        
                         //user.caracteristica;
-                        //user.categoria;
                         //user.codigo;
                         //user.descricao;
                         //user.marca;
-                        //user.medida;
-                        //user.produto;
-                        //user.quantidade;
-                        //user.quantidadeVendida;
-                        //user.subCategoria;
                         //user.valor;
 
                         
@@ -93,5 +127,20 @@ function listagemProdutos(){
         }
 
 }
+
+function atualizar(a){
+    
+    var id = a.target.getAttribute("child-key");
+    
+    if (id != null) {
+        alert("O Codigo foi encontrado " + id);
+    }else{
+        alert("O Codigo não foi encontrado");
+    }
+    
+}
+
+
+
 
 

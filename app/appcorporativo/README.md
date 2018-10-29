@@ -16,3 +16,4 @@ OBS: Os arquivos js que estão com o seus nomes em nome.extenção são para o a
 26/10/2018 - Inicio da listagem de produto. Precisa definir como será feito as buscas.
 27/10/2017 - Listagem de produtos finalizado. Agora e so detalhes de aparencia.
 28/10/2018 - Exibixão dos dados iniciada, falta definir como será exibido.
+29/10/2018 - Codigo resgatado com sucesso do produto, agora e so aplicar.

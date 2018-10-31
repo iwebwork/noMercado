@@ -1,9 +1,10 @@
-/* global firebase, dbRef, codigoEstabelecimento, username */
+/* global firebase, dbRef, codigoEstabelecimento, username, produto */
 
 function listagemProdutos(){
     var user = firebase.auth().currentUser;
         if (user != null) {
             firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
+                document.getElementById("userList").style.display = "block";
                 nomeEstabelecimento = (snapshot.val() && snapshot.val().nomeEstabelecimento); //esse .nome representa o atributo que você deseja buscar
                 codigoEstabelecimento = (snapshot.val() && snapshot.val().codigoEstabelecimento);
                 //  no banco de dados
@@ -128,14 +129,75 @@ function listagemProdutos(){
 
 }
 
-function atualizar(a){
+function atualizar(key){
+    document.getElementById("areaUpdate").style.display = "block";
     
-    var id = a.target.getAttribute("child-key");
+    codigo = key.target.getAttribute("child-key");
     
-    if (id != null) {
-        alert("O Codigo foi encontrado " + id);
+    
+    if (codigo != null) {
+        //alert("funcionou " + codigo);
+        document.cookie = nomeEstabelecimento;
+        //alert("Estabelecimento: " + nomeEstabelecimento);                
+        document.cookie = codigoEstabelecimento;
+        //alert("Tem codigo: " + codigoEstabelecimento);
+        
+        firebase.database().ref('/Produtos' + nomeEstabelecimento + codigoEstabelecimento + "/" + codigo).once('value').then(function(snapshot) {
+            
+            if(snapshot != null){
+
+                var produto = []; 
+                produto = snapshot.val();
+                var categoria = produto.categoria;
+                var caracteristica = produto.caracteristica;
+                var codigo = produto.codigo;
+                var descricao = produto.descricao;
+                var marca = produto.marca;
+                var medida = produto.medida;
+                var produto = produto.produto;
+                var promocao = produto.promocao;
+                var quantidade = produto.quantidade;
+                var quantidadeVendida = produto.quantidadeVendida;
+                var subCategoria = produto.subCategoria;
+                var url = produto.url;
+                var valor = produto.valor;
+                document.getElementById("categoria").value = categoria;
+                document.getElementById("caracteristica").value = caracteristica;
+                document.getElementById("codigoBarras").value = codigo;
+                document.getElementById("descricao").value = descricao;
+                document.getElementById("marca").value = marca;
+                document.getElementById("medida").value = medida;
+                document.getElementById("produto").value = produto;
+                document.getElementById("promocao").value = promocao;
+                document.getElementById("quantidade").value = quantidade;
+                document.getElementById("quantidadeVendida").value = quantidadeVendida;
+                document.getElementById("subCategoria").value = subCategoria;
+                document.getElementById("urlImg").value = url;
+                document.getElementById("valor").value = valor;
+                //caracteristica 
+                //categoria
+                //codigo
+                //codigoEstabelecimento 
+                //descricao
+                //marca
+                //medida
+                //produto
+                //promocao
+                //quantidade 
+                //quantidadeVendida
+                //subCategoria 
+                //url
+                //valor
+ 
+            }else{
+                alert("A busca falhou");
+            }
+
+        });
+        
+        
     }else{
-        alert("O Codigo não foi encontrado");
+        //alert("O Codigo não foi encontrado");
     }
     
 }

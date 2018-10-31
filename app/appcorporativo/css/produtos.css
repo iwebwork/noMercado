@@ -1,5 +1,5 @@
 #userList{
-   display: block;
+   display: none;
 }
 
 .area-titulos{
@@ -33,4 +33,11 @@
     margin: 25px;
     margin-top: 0;
    
+}
+
+
+
+
+#areaUpdate{
+    display: none;
 }

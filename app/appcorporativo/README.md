@@ -17,3 +17,5 @@ OBS: Os arquivos js que estão com o seus nomes em nome.extenção são para o a
 27/10/2017 - Listagem de produtos finalizado. Agora e so detalhes de aparencia.
 28/10/2018 - Exibixão dos dados iniciada, falta definir como será exibido.
 29/10/2018 - Codigo resgatado com sucesso do produto, agora e so aplicar.
+31/10/2018 - Inicio do update concluido, formulario criado, tem um bug que alguns atributos são exibidos, outros não, proxima etapa
+             consertar este bug.

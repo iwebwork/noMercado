@@ -146,34 +146,38 @@ function atualizar(key){
             
             if(snapshot != null){
 
-                var produto = []; 
-                produto = snapshot.val();
-                var categoria = produto.categoria;
-                var caracteristica = produto.caracteristica;
-                var codigo = produto.codigo;
-                var descricao = produto.descricao;
-                var marca = produto.marca;
-                var medida = produto.medida;
-                var produto = produto.produto;
-                var promocao = produto.promocao;
-                var quantidade = produto.quantidade;
-                var quantidadeVendida = produto.quantidadeVendida;
-                var subCategoria = produto.subCategoria;
-                var url = produto.url;
-                var valor = produto.valor;
-                document.getElementById("categoria").value = categoria;
-                document.getElementById("caracteristica").value = caracteristica;
-                document.getElementById("codigoBarras").value = codigo;
-                document.getElementById("descricao").value = descricao;
-                document.getElementById("marca").value = marca;
-                document.getElementById("medida").value = medida;
-                document.getElementById("produto").value = produto;
-                document.getElementById("promocao").value = promocao;
-                document.getElementById("quantidade").value = quantidade;
-                document.getElementById("quantidadeVendida").value = quantidadeVendida;
-                document.getElementById("subCategoria").value = subCategoria;
-                document.getElementById("urlImg").value = url;
-                document.getElementById("valor").value = valor;
+                //var produto; 
+                //produto = snapshot.val();
+                //alert(snapshot.val().caracteristica);
+                var categoria = snapshot.val().categoria;
+                var caracteristica = snapshot.val().caracteristica;
+                //alert(caracteristica);
+                var codigo = snapshot.val().codigo;
+                var descricao = snapshot.val().descricao;
+                var marca = snapshot.val().marca;
+                var medida = snapshot.val().medida;
+                var produto = snapshot.val().produto;
+                var promocao = snapshot.val().promocao;
+                //alert(caracteristica);
+                var quantidade = snapshot.val().quantidade;
+                var quantidadeVendida = snapshot.val().quantidadeVendida;
+                var subCategoria = snapshot.val().subCategoria;
+                var url = snapshot.val().url;
+                var valor = parseFloat(snapshot.val().valor);
+                var valorEd = valor.toFixed(2);
+                document.getElementById("valueCategoria").value = categoria;
+                document.getElementById("valueCaracteristica").value = caracteristica;
+                document.getElementById("valueCodigoBarras").value = codigo;
+                document.getElementById("valueDescricao").value = descricao;
+                document.getElementById("valueMarca").value = marca;
+                document.getElementById("valueMedida").value = medida;
+                document.getElementById("valueProduto").value = produto;
+                document.getElementById("valuePromocao").value = promocao;
+                document.getElementById("valueQuantidade").value = quantidade;
+                document.getElementById("valueQuantidadeVendida").value = quantidadeVendida;
+                document.getElementById("valueSubCategoria").value = subCategoria;
+                document.getElementById("valueUrlImg").value = url;
+                document.getElementById("valueValor").value = valorEd;
                 //caracteristica 
                 //categoria
                 //codigo

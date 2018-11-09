@@ -7,6 +7,11 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/listagem.css" />
+  
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  
 
   <!-- js pessoais -->
     <script src="../../js/_nav.js"></script>
@@ -243,6 +248,16 @@
 
         <!-- Fim do Update dos Produtos -->
         
+        <!-- Inicio da area de update de arquivos -->
+        <div>
+            <form id="formulario" method="post" enctype="multipart/form-data">
+                
+                <input name="arquivo" type="file" />
+                <button>Enviar</button>
+            </form>
+        </div>
+        <!-- Fim da area de update de arquivos -->
+        
         <!-- Inicio do Rodapé -->
         <div class="container-fluid">
             <div>  
@@ -257,7 +272,7 @@
 
 
 
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+
 <script>
   // Initialize Firebase
   var config = {

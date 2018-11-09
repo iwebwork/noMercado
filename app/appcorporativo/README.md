@@ -20,3 +20,4 @@ OBS: Os arquivos js que estão com o seus nomes em nome.extenção são para o a
 31/10/2018 - Inicio do update concluido, formulario criado, tem um bug que alguns atributos são exibidos, outros não, proxima etapa
              consertar este bug.
 02/11/2018 - Bug consertado estava dando conflito nos Ids, foi so alterar eles que funcionou.
+09/11/2018 - Houve a tentativa de upar arquivos para o servidor com ajax mas sem sucesso. Procurar outro meio.

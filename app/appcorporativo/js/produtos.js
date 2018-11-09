@@ -1,5 +1,15 @@
 /* global firebase, dbRef, codigoEstabelecimento, username, produto */
 
+  var config = {
+    apiKey: "AIzaSyARWxQfeawBVMkdnefN0YfQZN3-ciSK_Q0",
+    authDomain: "nomercadoapp.firebaseapp.com",
+    databaseURL: "https://nomercadoapp.firebaseio.com",
+    projectId: "nomercadoapp",
+    storageBucket: "nomercadoapp.appspot.com",
+    messagingSenderId: "876324724595"
+  };
+  firebase.initializeApp(config);
+  
 function listagemProdutos(){
     var user = firebase.auth().currentUser;
         if (user != null) {
@@ -129,6 +139,85 @@ function listagemProdutos(){
 
 }
 
+
+/*
+************************************************************************
+
+
+******************
+******************
+******************
+
+
+
+******************
+ Lucas
+*/
+//função criada por mim;Lucas/
+
+const dbRef = firebase.database().ref();
+//não sei pq, mas eu não consegui pegar o nomeEstabelecimento e o codigoEstabelecimento,
+// então fiz uma gambiarra, mas depois vc arruma isso, ok?
+nomeEstabelecimento="Generico Teste";
+codigoEstabelecimento="25";
+const usersRef = dbRef.child('ProdutosTesta'+nomeEstabelecimento+codigoEstabelecimento); //buscando a tabela que deseja inserir
+//coloquei ProdutosTesta só para não bugar nosso aplicativo, posteriormente vc corrige para Produtos, ok?
+//importante observar que será criado uma tabela com o nome de ProdutosTesta
+alterar();
+function alterar(){
+	//alert('chamou alterar');
+	//só pra criar um novo registro dentro do nosso Teste mesmo
+	codigo="123";
+	const usersRef = dbRef.child('ProdutosTesta'+nomeEstabelecimento+codigoEstabelecimento+"/"+codigo); 
+	//buscando a tabela que deseja inserir
+	//coloquei ProdutosTesta só para não bugar nosso aplicativo, posteriormente vc corrige para Produtos, ok?
+	
+	let newUser = {};
+	//newUser uma variavel que aceita varios campos, como se fosse um vetor. Ela funciona basicamente como um json
+	newUser["sabor"]="xxx"; // esse sabor se refere ao nome do seu campo/atributo
+	newUser["nutricional"]="trocou";//nutricional mesma coisa
+	
+	
+	usersRef.update(newUser);//aqui estamos atualizando os dados. 
+	
+	/*
+	No caso, para você fazer a alteração, vai ter que buscar todos os valores digitados pelo usuário 
+	(será importante fazer uma validação também)
+	mas lembre-se, faça a validação em um método separado dessa função de alterar, para que consigamos
+	seguir o padrão de o método só precisar de um motivo para ser alterado. Se aqui tiver validação, além de termos 
+	o motivo de alteração, teremos também o motivo de validação de dados e isso é incorreto seguindo padrões de projetos.
+	exemplo de como seria nossa alteração (não vou colocar todos os campos, mas vc vai ter que colocar
+	newUser["codigo"]="1111111";
+	newUser["caracteristica"]="Arroz branco";
+	newUser["valor"]=5.45;
+	será importantíssimo você analisar o código do nosso app em si, para que possa verificar como estão tipados
+	cada um dos campos/atributos como: codigo, característica, valor... etc
+	no mais é isto.
+	Peço que você finalize o restante do código, e posteriormente que acabar e estiver funcionando direitinho
+	crie uma nova aba no menu de "cadastrar multiplos" para que eu possa começar a trabalhar para cadastrar a planilha 
+	irei ficar te auxiliando assim, no que tange a registro/listagem/cadastros, essa parte mais operacional de buscar dados
+	criar leiautes, front-end etc ficará a seu cargo.
+	
+	*/
+	
+}
+
+
+/*
+************************************************************************
+
+
+******************
+******************
+******************
+
+
+
+******************
+ Lucas
+*/
+//fim da função criada
+
 function atualizar(key){
     document.getElementById("areaUpdate").style.display = "block";
     
@@ -208,5 +297,33 @@ function atualizar(key){
 
 
 
-
+//Codigo para realizar o envio de arquivos para o cadastro em massa de produtos
+$("#formulario").submit(function() {
+    var formData = new FormData(this);
+    var caminho = "C:\wamp\www\noMercado\app\appcorporativo";
+    
+    
+    $.ajax({
+        url: caminho,
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+            alert(data);
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        xhr: function() { // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            //alert("Começou o envio");
+            if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                myXhr.upload.addEventListener('progress', function() {
+                    /* faz alguma coisa durante o progresso do upload */
+                    alert("Estamos realizando o envio");
+                }, false);
+            }
+            return myXhr;
+        }
+    });
+});
 

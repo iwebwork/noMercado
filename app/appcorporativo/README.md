@@ -22,3 +22,4 @@ OBS: Os arquivos js que estão com o seus nomes em nome.extenção são para o a
 02/11/2018 - Bug consertado estava dando conflito nos Ids, foi so alterar eles que funcionou.
 09/11/2018 - Houve a tentativa de upar arquivos para o servidor com ajax mas sem sucesso. Procurar outro meio.
 15/11/2018 - Não teve como fazer o upload de arquivos com javaScript, portanto, tive que usar php na requisição.
+15/11/2018 - Foi encontrado como ler arquivos txt, foi implementado corretamente, então a exportação de arquivos via php foi desativada, agora e so leitura de arquivos com js.

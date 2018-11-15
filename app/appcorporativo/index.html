@@ -245,18 +245,20 @@
                 <input id="valueValor" type="text" class="form-control">
             </div>
         </div>
-
+        
+        
         <!-- Fim do Update dos Produtos -->
         
-        <!-- Inicio da area de update de arquivos -->
-        <div>
-            <form id="formulario" method="post" enctype="multipart/form-data">
-                
-                <input name="arquivo" type="file" />
-                <button>Enviar</button>
-            </form>
+        <!-- Inicio da area de update em massa de arquivos -->
+        <div id="upMassa" class="container">
+            <button class="btn-sucess" onclick="cadasMassa()">Envie sua planilha</button>
         </div>
-        <!-- Fim da area de update de arquivos -->
+        <form method="POST" id="formFiles" name="formFiles" enctype="multipart/form-data" action="upload.php">
+            <input type="file" name="arquivo" required/>
+            <input type="submit" name="Enviar"/>
+        </form>
+
+        <!-- Fim da area de update em massa de arquivos -->
         
         <!-- Inicio do Rodapé -->
         <div class="container-fluid">

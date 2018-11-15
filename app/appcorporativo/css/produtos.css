@@ -35,9 +35,14 @@
    
 }
 
-
-
-
 #areaUpdate{
+    display: none;
+}
+
+#upMassa{
+    display: none;
+}
+
+#formFiles{
     display: none;
 }

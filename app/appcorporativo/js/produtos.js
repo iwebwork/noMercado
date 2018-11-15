@@ -11,6 +11,7 @@
   firebase.initializeApp(config);
   
 function listagemProdutos(){
+    document.getElementById("upMassa").style.display = "block";
     var user = firebase.auth().currentUser;
         if (user != null) {
             firebase.database().ref('/UsuariosCorporativos/' + id).once('value').then(function(snapshot) {
@@ -298,32 +299,32 @@ function atualizar(key){
 
 
 //Codigo para realizar o envio de arquivos para o cadastro em massa de produtos
-$("#formulario").submit(function() {
-    var formData = new FormData(this);
-    var caminho = "C:\wamp\www\noMercado\app\appcorporativo";
-    
-    
-    $.ajax({
-        url: caminho,
-        type: 'POST',
-        data: formData,
-        success: function(data) {
-            alert(data);
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-        xhr: function() { // Custom XMLHttpRequest
-            var myXhr = $.ajaxSettings.xhr();
-            //alert("Começou o envio");
-            if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
-                myXhr.upload.addEventListener('progress', function() {
-                    /* faz alguma coisa durante o progresso do upload */
-                    alert("Estamos realizando o envio");
-                }, false);
-            }
-            return myXhr;
-        }
+/*$(function () {
+
+    var form;
+    $('#fileUpload').change(function (event) {
+        form = new FormData();
+        form.append('fileUpload', event.target.files[0]); // para apenas 1 arquivo
+        //var name = event.target.files[0].content.name; // para capturar o nome do arquivo com sua extenção
     });
-});
+
+    $('#btnEnviar').click(function () {
+        $.ajax({
+            url: 'http://localhost/noMercado/app/appcorporativo/', // Url do lado server que vai receber o arquivo
+            data: form,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (data) {
+                // utilizar o retorno
+                //alert("Entrou aqui");
+                alert(data);
+            }
+        });
+    });
+});*/
+
+function cadasMassa(){
+    document.getElementById("formFiles").style.display = "block";
+}
 

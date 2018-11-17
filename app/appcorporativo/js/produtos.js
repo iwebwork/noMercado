@@ -329,7 +329,7 @@ function cadasMassa(){
     setInterval(lertxt,2000);
     
 }
-
+teste="";
 function lertxt(){
     //Check the support for the File API support
             if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -345,7 +345,19 @@ function lertxt(){
                         var fileReader = new FileReader();
                         fileReader.onload = function (e) {
                             var fileContents = document.getElementById('filecontents');
-                            fileContents.innerText = fileReader.result;
+                            
+                           String.prototype.replaceAll = String.prototype.replaceAll || function(needle, replacement) {
+							return this.split(needle).join(replacement);
+								};
+							var texto = fileReader.result.replaceAll("\n",";");
+							var emptytexto=texto.replace("\r","");
+				 str = emptytexto.split(";");                
+				
+                                
+                                
+				fileContents.innerText = "<h6>"+ str + "</h6>";
+				cadastrar(str);
+					
                         };
                         fileReader.readAsText(fileTobeRead);
                     }
@@ -358,5 +370,42 @@ function lertxt(){
             else {
                 alert("Arquivo(s) não suportado(s)");
             }
+}
+
+function cadastrar(valor){
+	
+	listaprodutos=valor;
+	for(i=16;i<listaprodutos.length;i=i+16){
+		if(listaprodutos[i].length<3||listaprodutos[i+7].length<3||listaprodutos[i+6].length<3){
+		}else{
+			if(listaprodutos[i+13].length>3){
+				
+			let novoProduto = {};
+	novoProduto["caracteristica"]=listaprodutos[i+9]; 
+	novoProduto["categoria"]=listaprodutos[i+7];
+	novoProduto["codigo"]=listaprodutos[i];
+	novoProduto["codigoEstabelecimento"]=123;
+	novoProduto["descricao"]=listaprodutos[i+6];
+	auxmarca=listaprodutos[i+15].replace("\r","");
+	novoProduto["marca"]=auxmarca;
+	novoProduto["medida"]="xyz123";
+	novoProduto["produto"]=listaprodutos[i+1];
+	novoProduto["promocao"]=0;
+	novoProduto["quantidade"]=0;
+	novoProduto["quantidadeVendida"]=0;
+	novoProduto["subCategoria"]=listaprodutos[i+1];
+	novoProduto["url"]="www.nomercadosoft.com.br/imagens/produtos/"+listaprodutos[i+13];
+	novoProduto["valor"]=2.50;
+	
+	codigo="123";
+	const usersRef = dbRef.child('ProdutosTesta'+nomeEstabelecimento+codigoEstabelecimento+"/"+listaprodutos[i]); 
+	//buscando a tabela que deseja inserir
+	//coloquei ProdutosTesta só para não bugar nosso aplicativo, posteriormente vc corrige para Produtos, ok?
+	
+	usersRef.update(novoProduto);//aqui estamos atualizando os dados. 
+			}
+		}
+	}
+	
 }
 

@@ -351,11 +351,10 @@ function lertxt(){
 								};
 							var texto = fileReader.result.replaceAll("\n",";");
 							var emptytexto=texto.replace("\r","");
-				 str = emptytexto.split(";");                
-				
-                                
-                                
-				fileContents.innerText = "<h6>"+ str + "</h6>";
+				str = emptytexto.split(";");    
+                                //texto = document.getElementById("fileContents");
+                                //texto = document.getElementById("fileContents").innerHTML;
+				fileContents.innerText = str;
 				cadastrar(str);
 					
                         };
@@ -394,11 +393,11 @@ function cadastrar(valor){
 	novoProduto["quantidade"]=0;
 	novoProduto["quantidadeVendida"]=0;
 	novoProduto["subCategoria"]=listaprodutos[i+1];
-	novoProduto["url"]="www.nomercadosoft.com.br/imagens/produtos/"+listaprodutos[i+13];
+	novoProduto["url"]="www.nomercadosoft.com.br/Imagens/produtos/"+listaprodutos[i+13];
 	novoProduto["valor"]=2.50;
 	
 	codigo="123";
-	const usersRef = dbRef.child('ProdutosTesta'+nomeEstabelecimento+codigoEstabelecimento+"/"+listaprodutos[i]); 
+	const usersRef = dbRef.child("ProdutosTesta"+nomeEstabelecimento+codigoEstabelecimento+"/"+listaprodutos[i]); 
 	//buscando a tabela que deseja inserir
 	//coloquei ProdutosTesta só para não bugar nosso aplicativo, posteriormente vc corrige para Produtos, ok?
 	
